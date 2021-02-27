@@ -15,8 +15,8 @@ fill:
     # $s1 has size, $s2 has first pointer, $s3 is the iterator (i), $s4 is the default value to fill
     
     lw      $t0, 0($s2)     # load stored int, $t0 = arr[i]                             0x00400024
-    addi    $t0, $s4, 0     # establish default value arr[i] = $s4                      0x00400028
-    sw      $t0, 0($s2)     # save result arr[i] = $t0                                  0x0040002C
+    addi    $t0, $s4, -1     # establish default value arr[i] = $s4                      0x00400028
+    sw      $t0, 4($s2)     # save result arr[i] = $t0                                  0x0040002C
     addi    $s2, $s2, 4     # increment iterator for next position                      0x00400030
     addi    $s3, $s3, 1     # increment i for size comparison                           0x00400034
     bne     $s1, $s3, -5    # while i != size, fill                                     0x00400038
