@@ -1,12 +1,12 @@
 import os
 
-def getFunctions():
-    functions = dict()
+def getOpcodes():
+    opcodes = dict()
     cur_path = os.path.dirname(__file__)
-    path = cur_path + 'Instructions/Functions.txt'
+    path = cur_path + '/Instructions/JType.txt'
     with open(path, 'r') as f:
         instructions = f.read().split('\n')
     for i in instructions:
         currentIns = i.split()
-        functions[currentIns[0]] = currentIns[1]
-    return functions
+        opcodes[currentIns[0]] = currentIns[1]
+    return opcodes
