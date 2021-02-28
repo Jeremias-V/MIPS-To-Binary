@@ -4,6 +4,7 @@ def cleanCode(lines):
     final = list()
     cur_path = os.path.dirname(__file__)
     path = cur_path + '/instructions.txt'
+    lines = lines.split('\n')
     with open(path, 'r') as f:
         instructions = f.read().split()
     for line in lines:

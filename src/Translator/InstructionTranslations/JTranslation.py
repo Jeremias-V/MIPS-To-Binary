@@ -1,7 +1,7 @@
-from InstructionTranslations.Complements import HexToBin, IntToBin, isHex
+from Translator.InstructionTranslations.Complements import HexToBin, IntToBin, isHex
 import sys
 sys.path.append("..")
-from InstructionSet import Registers, JType
+from Translator.InstructionSet import Registers, JType
 
 registers = Registers.getRegisters()
 zeros = ['$0', '$zero']

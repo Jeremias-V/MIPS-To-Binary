@@ -1,7 +1,7 @@
-from InstructionTranslations.Complements import IntToBin, HexToBin, isHex, twosComplement
+from Translator.InstructionTranslations.Complements import IntToBin, HexToBin, isHex, twosComplement
 import sys
 sys.path.append("..")
-from InstructionSet import Registers, RType, Functions
+from Translator.InstructionSet import Registers, RType, Functions
 
 registers = Registers.getRegisters()
 functions = Functions.getFunctions()

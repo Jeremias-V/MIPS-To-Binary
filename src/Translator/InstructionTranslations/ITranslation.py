@@ -1,7 +1,7 @@
-from InstructionTranslations.Complements import IntToBin, HexToBin, isHex, twosComplement
+from Translator.InstructionTranslations.Complements import IntToBin, HexToBin, isHex, twosComplement
 import sys
 sys.path.append("..")
-from InstructionSet import Registers, IType
+from Translator.InstructionSet import Registers, IType
 
 registers = Registers.getRegisters()
 itype = IType.getOpcodes()
@@ -27,9 +27,9 @@ def getITypeParams(s):
         if(s[i] == ")"):
             return [inmediate, register]
         else:
-            return ""
+            return []
     else:
-        return ""
+        return []
 
 def translateI(line):
     ans = ""
