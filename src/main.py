@@ -1,6 +1,6 @@
 from sys import stdin
-from Parser import clean
+from GUI import gui
 
 def main():
-    print(*clean.cleanCode(stdin.readlines()),sep='\n')
+    gui.show()
 main()

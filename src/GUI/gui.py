@@ -5,7 +5,7 @@ sys.path.append("..")
 from src.Translator.Translate import translateMIPS
 import tkinter as tk
 
-def main():
+def show():
 
     root = tk.Tk()
     root.geometry("1480x940")
@@ -32,7 +32,7 @@ def main():
     def cleanCode(lines):
         final = list()
         cur_path = os.path.dirname(__file__)
-        path = cur_path + '../Translator/Parser/instructions.txt'
+        path = cur_path + '/../Translator/Parser/instructions.txt'
         with open(path, 'r') as f:
             instructions = f.read().split()
         lines = lines.split('\n')
@@ -81,5 +81,3 @@ def main():
     window.pack()
     buttons.pack()
     root.mainloop()
-
-main()
