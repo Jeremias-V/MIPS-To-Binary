@@ -8,7 +8,7 @@ itype = IType.getOpcodes()
 zeros = ['$0', '$zero']
 invalid = ['$k0', '$k1']
 itype_rt_rs = ['addi', 'addiu', 'andi', 'lui', 'ori', 'slti', 'sltiu']
-itype_load = ['lw', 'lh', 'lhu', 'lb', 'lbu', 'll']
+itype_load = ['lw', 'lhu', 'lbu', 'll'] # lh, lb?
 itype_store = ['sw', 'sh', 'sb', 'sc']
 itype_rs_rt = ['beq', 'bne']
 

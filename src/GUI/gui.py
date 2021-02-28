@@ -2,6 +2,7 @@ import sys
 import os
 sys.path.append("..")
 
+from src.Translator.Parser.clean import cleanCode
 from src.Translator.Translate import translateMIPS
 import tkinter as tk
 
@@ -28,24 +29,6 @@ def show():
     outputCode.grid(row=1, column=1)
 
     buttons = tk.Frame(root)
-
-    def cleanCode(lines):
-        final = list()
-        cur_path = os.path.dirname(__file__)
-        path = cur_path + '/../Translator/Parser/instructions.txt'
-        with open(path, 'r') as f:
-            instructions = f.read().split()
-        lines = lines.split('\n')
-        for line in lines:
-            originalLine = list(line.split('\n'))
-            line = list(line.split())
-            if not line or line[0] == '#' or line[0][0] == '.' or (line[0] not in instructions):
-                pass
-            else:
-                tmp = ' '.join(originalLine)
-                ans = tmp.split("#", 1)
-                final.append(ans[0].split())
-        return final
 
     def cleanButton():
         ## function to clean the code
