@@ -7,7 +7,7 @@ registers = Registers.getRegisters()
 itype = IType.getOpcodes()
 zeros = ['$0', '$zero']
 invalid = ['$k0', '$k1']
-itype_rt_rs = ['addi', 'addiu', 'andi', 'lui', 'ori', 'slti', 'sltiu']
+itype_rt_rs = ['addi', 'addiu', 'andi', 'ori', 'slti', 'sltiu']
 itype_load = ['lw', 'lhu', 'lbu', 'll'] # lh, lb?
 itype_store = ['sw', 'sh', 'sb', 'sc']
 itype_rs_rt = ['beq', 'bne']
@@ -34,7 +34,11 @@ def getITypeParams(s):
 def translateI(line):
     ans = ""
     opcode = line[0]
-    if(opcode in itype_rt_rs):
+    if(opcode == 'lui'):
+        rs = '$0'
+        rt = line[1][:-1]
+        inmediate = line[2]
+    elif(opcode in itype_rt_rs):
         rs = line[2][:-1]
         rt = line[1][:-1]
         inmediate = line[3]

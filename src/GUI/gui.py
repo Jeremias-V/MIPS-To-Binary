@@ -34,7 +34,7 @@ def show():
         ## function to clean the code
         lines = inputCode.get(1.0, tk.END)
         inputCode.delete(1.0, tk.END)
-        cleanerCode = cleanCode(lines)
+        cleanerCode = cleanCode(lines)[0]
         ans = ""
         for l in cleanerCode:
             ans += ' '.join(l) + '\n'
