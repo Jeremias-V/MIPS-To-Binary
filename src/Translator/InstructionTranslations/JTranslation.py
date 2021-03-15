@@ -3,9 +3,6 @@ import sys
 sys.path.append("..")
 from Translator.InstructionSet import Registers, JType
 
-registers = Registers.getRegisters()
-zeros = ['$0', '$zero']
-invalid = ['$k0', '$k1']
 jtype = JType.getOpcodes()
 
 def translateJ(line):

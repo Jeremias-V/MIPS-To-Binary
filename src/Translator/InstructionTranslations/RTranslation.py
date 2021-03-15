@@ -26,18 +26,26 @@ def translateR(line):
         rs = line[2][:-1]
         rt = line[3]
         rd = line[1][:-1]
+        if(rd in zeros):
+            return ans
     elif(opcode in rtype_rd_rt_sh):
         rs = '$0'
         rt = line[2][:-1]
         rd = line[1][:-1]
         shamt = line[3]
+        if(rd in zeros):
+            return ans
     elif(opcode in rtype_move_rd):
         # mfhi mflo? rd
         rs = '$0'
         rt = '$0'
         rd = line[1]
+        if(rd in zeros):
+            return ans
     elif(opcode in rtype_rs_rt):
         rs = line[1][:-1]
+        if(rs in zeros):
+            return ans
         rt = line[2]
         rd = '$0'
     else:
