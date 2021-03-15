@@ -1,7 +1,7 @@
-from Translator.InstructionTranslations.Complements import HexToBin, IntToBin, isHex
 import sys
-sys.path.append("..")
+from Translator.InstructionTranslations.Complements import HexToBin, IntToBin, isHex
 from Translator.InstructionSet import Registers, JType
+sys.path.append("..")
 
 jtype = JType.getOpcodes()
 

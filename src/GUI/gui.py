@@ -4,6 +4,7 @@ sys.path.append("..")
 
 from src.Translator.Parser.clean import cleanCode
 from src.Translator.Translate import translateMIPS
+from src.HexTranslator.Translate import translateHexToMips
 import tkinter as tk
 from tkinter import filedialog
 
@@ -48,6 +49,10 @@ def show():
         outputCode.insert(tk.INSERT, ans)
 
     def translateHEXButton():
+        lines = inputCode.get(1.0, tk.END).split('\n')
+        outputCode.delete(1.0, tk.END)
+        ans = translateHexToMips(lines)
+        outputCode.insert(tk.INSERT, ans)
         pass
 
 
