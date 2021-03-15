@@ -18,7 +18,7 @@ loop:
     bne     $s1, $s3, 2  
     jr      $ra             
 main: 
-    lui     $s0, $s0, 0x1000     
+    lui     $s0, 0x1000     
     ori     $s0, $s0, 0x0000     
     addi    $s1, $0, 1000   
     addi    $s2, $s0, 0     

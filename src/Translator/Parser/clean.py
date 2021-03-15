@@ -16,7 +16,6 @@ def cleanCode(lines):
     for line in lines:
         originalLine = list(line.split('\n'))
         line = list(line.split())
-        print(line)
         if(line and len(line[0]) > 1 and line[0][-1] == ':'):
             tag = line[0][:-1]
             tagAddress[tag] = pos
@@ -29,5 +28,4 @@ def cleanCode(lines):
             lineAddress[k] = pos
             k+= 1
             pos += 4
-    print(tagAddress, lineAddress, sep='\n')
     return [final, tagAddress, lineAddress]

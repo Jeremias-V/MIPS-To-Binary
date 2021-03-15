@@ -24,3 +24,9 @@ def isHex(s):
         return True
     else:
         return False
+
+def isTag(s):
+    for c in s:
+        if (ord(c) < 97 or ord(c) > 122) and (ord(c) < 65 or ord(c) > 90):
+            return False
+    return True
