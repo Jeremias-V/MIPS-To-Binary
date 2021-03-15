@@ -37,20 +37,27 @@ def translateI(line):
     if(opcode == 'lui'):
         rs = '$0'
         rt = line[1][:-1]
+        if(rt in zeros):
+            return ans
         inmediate = line[2]
     elif(opcode in itype_rt_rs):
         rs = line[2][:-1]
         rt = line[1][:-1]
+        if(rt in zeros):
+            return ans
         inmediate = line[3]
     elif(opcode in itype_rs_rt):
         rs = line[1][:-1]
+        if(rs in zeros):
+            return ans
         rt = line[2][:-1]
         inmediate = line[3]
     elif(opcode in itype_load or opcode in itype_store):
-        #lw      $t0, 0($s2)
         params = getITypeParams(line[2])
         inmediate = params[0]
         rs = params[1]
+        if(rs in zeros):
+            return ans
         rt = line[1][:-1]
     else:
         return ans

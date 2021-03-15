@@ -16,9 +16,10 @@ def translateMIPS(lines):
     tags = tmp[1]
     address = tmp[2]
     ans = ""
-    k = 1
+    k = 0
     try:
         for l in lines:
+            k += 1
             if len(l) == 0:
                 return ""
             opcode = l[0]
@@ -29,7 +30,7 @@ def translateMIPS(lines):
                 if translation != "":
                     ans += translation + '\n'
                 else:
-                    return l + " is not a valid instruction."
+                    return ' '.join(l) + " is not a valid instruction." + '\nIn line ' + str(k) + ' (ignoring tags).'
             elif(opcode in jtype and len(l) == 2):
                 if(isTag(l[1])):
                     l[1] = str(int(tags[l[1]]/4))
@@ -37,16 +38,15 @@ def translateMIPS(lines):
                 if translation != "":
                     ans += translation + '\n'
                 else:
-                    return l + " is not a valid instruction."
+                    return ' '.join(l) + " is not a valid instruction." + '\nIn line ' + str(k) + ' (ignoring tags).'
             elif(opcode in rtype):
                 translation = RTranslation.translateR(l)
                 if translation != "":
                     ans += translation + '\n'
                 else:
-                    return l + " is not a valid instruction."
+                    return ' '.join(l) + " is not a valid instruction." + '\nIn line ' + str(k) + ' (ignoring tags).'
             else:
-                return "INVALID"
-            k += 1
+                return "Invalid instruction " + ' '.join(l) + '\nIn line ' + str(k) + ' (ignoring tags).'
     except Exception as e:
-        return "ERROR: " + str(e)
+        return "ERROR: " + str(e) + '\nIn line ' + str(k) + ' (ignoring tags).'
     return ans
