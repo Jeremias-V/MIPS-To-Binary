@@ -8,14 +8,14 @@ fill:
     bne     $s1, $s3, 1  
     addi    $s2, $s0, 0     
     addi    $s3, $0, 0      
-    j       0xb            
+    j       main            
 loop: 
     lw      $t0, 0($s2)     
     sll     $t0, $t0, 3     
     sw      $t0, 0($s2)     
     addi    $s2, $s2, 4     
     addi    $s3, $s3, 1     
-    bne     $s1, $s3, 2  
+    bne     $s1, $s3, loop  
     jr      $ra             
 main: 
     lui     $s0, 0x1000     

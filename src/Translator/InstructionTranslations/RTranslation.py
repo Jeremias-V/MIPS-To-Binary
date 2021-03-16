@@ -6,7 +6,7 @@ from Translator.InstructionSet import Registers, RType, Functions
 registers = Registers.getRegisters()
 functions = Functions.getFunctions()
 rtype = RType.getOpcodes()
-zeros = ['$0', '$zero']
+zeros = ['$0', '$zero', '$gp']
 invalid = ['$k0', '$k1']
 rtype_rd_rs_rt = ['add', 'addu', 'and', 'nor', 'or', 'slt', 'sltu', 'sub', 'subu']
 rtype_rd_rt_sh = ['sll', 'srl', 'sra']

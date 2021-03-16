@@ -1,11 +1,11 @@
 from Translator.InstructionTranslations.Complements import IntToBin, HexToBin, isHex, twosComplement
+from Translator.InstructionSet import Registers, IType
 import sys
 sys.path.append("..")
-from Translator.InstructionSet import Registers, IType
 
 registers = Registers.getRegisters()
 itype = IType.getOpcodes()
-zeros = ['$0', '$zero']
+zeros = ['$0', '$zero', '$gp']
 invalid = ['$k0', '$k1']
 itype_rt_rs = ['addi', 'addiu', 'andi', 'ori', 'slti', 'sltiu']
 itype_load = ['lw', 'lhu', 'lbu', 'll']
@@ -56,9 +56,9 @@ def translateI(line):
         params = getITypeParams(line[2])
         inmediate = params[0]
         rs = params[1]
-        if(rs in zeros):
-            return ans
         rt = line[1][:-1]
+        if(rt in zeros):
+            return ans
     else:
         return ans
     if(rs in registers and rt in registers and rs not in invalid and rt not in invalid):

@@ -25,7 +25,7 @@ def translateMIPS(lines):
             opcode = l[0]
             if(opcode in itype):
                 if(len(l) == 4 and isTag(l[3])):
-                    l[3] = str(int((tags[l[3]] - address[k])/4))
+                    l[3] = str(int((tags[l[3]] - (address[k] + 4))/4))
                 translation = ITranslation.translateI(l)
                 if translation != "":
                     ans += translation + '\n'
